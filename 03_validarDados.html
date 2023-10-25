@@ -11,11 +11,27 @@
     */
 
     //Entrada
-
+    const n = Number(prompt(`informe um nome`))
+    const i = Number(prompt(`informe idade`))
+    const Salário = Number(prompt(`informe o salario`))
+    const sexo = Number(prompt(`informe sexo`))
+    const estado = Number(prompt(`informe estado civil`))
 
     //Processamento
-
+while(n.length < 3){
+    n.push(prompt(`o nome tem mais que 3 caracteres`))
+}
+while(i <= 0 || i >= 150){
+    i.push(prompt(`a idade não corresponde digite denovo`))
+}
+while(Salário > 0){
+    Salário.push(prompt(`o salario tem que ser maior que 0`))
+}
+while(sexo == "f" && sexo == "m"){
+    sexo.push(prompt(`o sexo tem que ser f ou m`))
+}
+while(estado == "s" && estado == "c" && estado == "v" && estado == "d")
 
     //Saída
-
+document.write(`informações ${n}, ${i} , ${Salário} , ${sexo} , ${estado}<br>`)
 </script>

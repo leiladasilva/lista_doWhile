@@ -6,10 +6,15 @@
     */
 
     //Entrada
+    const nome = prompt(`informe o usuario `)
+    const senha = prompt(`informe a senha`)
 
 
     //Processamento
-
+    while(nome == senha){
+        senha.push(prompt(`a senha e o usuario são iguais por favor insira outra senha`))
+    }
+document.write(`a senha foi ${senha} e o usuario foi ${nome} obrigado pela colaboração`)
 
     //Saída
 

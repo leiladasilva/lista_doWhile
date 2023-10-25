@@ -6,9 +6,16 @@
     */
 
     //Entrada
+    const senha = Number(prompt(`informe uma senha de 4 numeros inteiros`))
 
 
     //Processamento
+    while(isNaN(senha)){
+        senha.push(prompt(`a senha tem mais que 4 numeros ou não é um numero insira novamente`))
+        if(senha.length == 4 ){
+            alert(`senha correta`)
+        }
+    }
 
 
     //Saída
