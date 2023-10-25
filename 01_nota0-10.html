@@ -7,10 +7,15 @@
 
     //Entrada
 
-
+const numero = Number(prompt(`informe uma nota`))
     //Processamento
-
+  while (numero < 0 || numero > 10 || isNaN(numero)) {
+      numero.push(prompt(`Insira o numero pendente:`));
+    }
 
     //Saída
-
+    document.write(`O número inserido foi ${numero}!`);
 </script>
+
+
+
