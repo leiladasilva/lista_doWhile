@@ -1,23 +1,50 @@
 <meta charset="UTF-8">
-<script>
-    /*
-    Problema: Pesquisa de Idade
-    Foi feita uma pesquisa entre os habitantes de uma região. Foram coletados os dados de idade, sexo (M/F) e salário. Faça um programa que calcule e mostre:
 
-    a) A média dos salários do grupo;
-    b) A maior e a menor idade do grupo;
-    c) A quantidade de mulheres na região;
-    d) A idade e o sexo da pessoa que possui o menor salário;
+    <script>
+        // Entrada
+        let idade = -1;
+        let id = 0;
+        let sexo;
+        let salario;
+        let objetoPessoas = [];
+        let maiorIdade;
+        let menorIdade;
+        let qtdMulheres;
 
-    Finalize a entrada de dados ao ser digitada uma idade negativa.
-    */
+        do {
+            idade = Number(prompt(`Informe sua idade:`));
+            if (idade > 0) {
+                id++
+                sexo = prompt(`Informe seu sexo: M - Masculino || F - Feminino`).toUpperCase();
+                salario = Number(prompt(`Informe o seu salário`));
+                objetoPessoas.push({ id: id, idade: idade, sexo: sexo, salario: salario });
+            }
+        } while (idade >= 0)
 
-    //Entrada
+        // Processamento
 
+        maiorIdade = objetoPessoas.reduce((maior, valor) => {
+            return valor.idade > maior.idade ? valor : maior;
+        }, objetoPessoas[0].idade);
 
-    //Processamento
+        menorIdade = objetoPessoas.sort((a, b) => a.idade - b.idade)[0].idade;
+        maiorIdade = objetoPessoas.sort((a, b) => a.idade - b.idade)[objetoPessoas.length - 1].idade;
 
+        qtdMulheres = objetoPessoas.filter((pessoa) => pessoa.sexo == "F").length;
 
-    //Saída
+        let menorSalario = objetoPessoas.sort((a, b) => a.salario - b.salario)[0].salario;
 
+        let mediaSalarial = (objetoPessoas.reduce((soma, valor) => {
+            return soma + valor.salario;
+        }, 0)) / objetoPessoas.length;
+
+        let menoresSalarios = objetoPessoas.filter((pessoa) => pessoa.salario === menorSalario);
+
+        // Saída
+        document.write(`Média salarial do grupo: R$${mediaSalarial.toFixed(2)} <br> Maior idade do grupo: ${maiorIdade} anos <br> Menor idade do grupo: ${menorIdade} anos <br> Quantidade de mulheres na região: ${qtdMulheres} <br> Idade(s) e sexo da(s) pessoa(s) que possuí(em) o menor salário:<br>`);
+        for (const pessoa of menoresSalarios) {
+            document.write(`${pessoa.idade} anos, sexo ${pessoa.sexo} <br>`);
+        }
+    </script>
+   
 </script>

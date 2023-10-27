@@ -5,19 +5,20 @@
     Faça um programa que receba uma senha formada de quatro números inteiros, verifique se a senha está correta e, caso não esteja, solicite novamente a senha. Se a senha entrada for a correta, deverá ser apresentada a mensagem “Senha Correta”, caso contrário, “Senha Incorreta”.
     */
 
+ /*Problema: Cadastrar itens
+    Peça para o usuário inserir 3 itens em uma lista de tafefas pendentes
+    */
+    
+   
+    
     //Entrada
-    const senha = Number(prompt(`informe uma senha de 4 numeros inteiros`))
-
+    let tarefasPendentes = [];
 
     //Processamento
-    while(isNaN(senha)){
-        senha.push(prompt(`a senha tem mais que 4 numeros ou não é um numero insira novamente`))
-        if(senha.length == 4 ){
-            alert(`senha correta`)
-        }
+    while (tarefasPendentes.length < 3) {
+        tarefasPendentes.push(prompt(`Insira a tarefa pendente:`));
     }
 
-
     //Saída
-
+    document.write(`As tarefas pendentes são:<br><li>${tarefasPendentes.join("</li><li>")}</li>`);
 </script>
